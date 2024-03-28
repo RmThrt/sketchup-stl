@@ -253,7 +253,7 @@ module CommunityExtensions
         export_ents = nil
         if OPTIONS['component_selection'] == 'One file for each Main Component'
           model = Sketchup.active_model
-          export_ents = model.entities
+          export_ents = model.entities.grep(Sketchup::ComponentInstance)
         elsif OPTIONS['component_selection'] == 'Selection Only'
           if Sketchup.active_model.selection.length > 0
             export_ents = Sketchup.active_model.selection
